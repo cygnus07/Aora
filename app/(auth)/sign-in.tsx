@@ -14,19 +14,7 @@ const SignIn = () => {
     password: "",
   });
 
-  // Mock signIn function to simulate login
-  const signIn = async (email, password) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (email === "test@example.com" && password === "password123") {
-          resolve({ message: "Login successful!" });
-        } else {
-          reject(new Error("Invalid credentials"));
-        }
-      }, 1000); // Simulate network delay
-    });
-  };
-
+  
   const submit = async () => {
     if (form.email === "" || form.password === "") {
       Alert.alert("Error", "Please fill in all fields");

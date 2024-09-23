@@ -6,6 +6,7 @@ import { View, Text, ScrollView, Dimensions, Alert, Image, StyleSheet } from "re
 import { images } from "../../constants";
 import CustomButton from '../../components/CustomButton';  
 import FormField from '../../components/FormField';
+import { createUser } from '../../lib/appwrite'
 
 const SignUp = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -15,37 +16,28 @@ const SignUp = () => {
     password: "",
   });
 
-  // Mock signIn function to simulate login
-  const signIn = async (email, password) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (email === "test@example.com" && password === "password123") {
-          resolve({ message: "Login successful!" });
-        } else {
-          reject(new Error("Invalid credentials"));
-        }
-      }, 1000); // Simulate network delay
-    });
-  };
-
   const submit = async () => {
-    if (form.email === "" || form.password === "") {
-      Alert.alert("Error", "Please fill in all fields");
-      return;
-    }
-
-    setSubmitting(true);
-
-    try {
-      await signIn(form.email, form.password);
-      Alert.alert("Success", "User signed in successfully");
-      router.replace("/home");
-    } catch (error) {
-      Alert.alert("Error", error.message);
-    } finally {
-      setSubmitting(false);
-    }
-  };
+    if (form.username === "" || form.email === "" || form.password === "") {
+        Alert.alert("Error", "Please fill in all fields");
+      }
+  
+      setSubmitting(true);
+      console.log("Submitting form", form)
+      try {
+        const result = await createUser(form.email, form.password, form.username);
+        console.log("User created Successfully", result);
+        // setUser(result);
+        // setIsLogged(true);
+  
+        router.replace("/home");
+        console.log("Redirecting to /home")
+      } catch (error) {
+        Alert.alert("Error", error.message);
+      } finally {
+        setSubmitting(false);
+        console.log("Submitting completed"); 
+      }
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -88,7 +80,7 @@ const SignUp = () => {
           />
 
           <CustomButton
-            title="Sign In"
+            title="Sign Up"
             handlePress={submit}
             containerStyles={styles.button}
             isLoading={isSubmitting}

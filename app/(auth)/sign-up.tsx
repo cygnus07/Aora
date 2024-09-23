@@ -7,37 +7,36 @@ import { images } from "../../constants";
 import CustomButton from '../../components/CustomButton';  
 import FormField from '../../components/FormField';
 import { createUser } from '../../lib/appwrite'
+import { useGlobalContext } from '../../context/GlobalProvider';
 
 const SignUp = () => {
-  const [isSubmitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+    const { setUser, setIsLogged } = useGlobalContext();
 
-  const submit = async () => {
-    if (form.username === "" || form.email === "" || form.password === "") {
+    const [isSubmitting, setSubmitting] = useState(false);
+    const [form, setForm] = useState({
+      username: "",
+      email: "",
+      password: "",
+    });
+  
+    const submit = async () => {
+      if (form.username === "" || form.email === "" || form.password === "") {
         Alert.alert("Error", "Please fill in all fields");
       }
   
       setSubmitting(true);
-      console.log("Submitting form", form)
       try {
         const result = await createUser(form.email, form.password, form.username);
-        console.log("User created Successfully", result);
-        // setUser(result);
-        // setIsLogged(true);
+        setUser(result);
+        setIsLogged(true);
   
         router.replace("/home");
-        console.log("Redirecting to /home")
       } catch (error) {
         Alert.alert("Error", error.message);
       } finally {
         setSubmitting(false);
-        console.log("Submitting completed"); 
       }
-  }
+    };
 
   return (
     <SafeAreaView style={styles.safeArea}>

@@ -5,12 +5,19 @@ import { images } from '../constants';
 import CustomButton from '../components/CustomButton';  
 import { Redirect, router } from 'expo-router';
 import 'react-native-url-polyfill/auto'
+import { useGlobalContext } from '../context/GlobalProvider';
 
 
 const { height } = Dimensions.get('window');
 
 
 export default function Index() {
+
+  const { loading, isLogged } = useGlobalContext();
+
+  if (!loading && isLogged) return <Redirect href="/home" />;
+
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>

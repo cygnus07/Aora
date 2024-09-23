@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { SafeAreaView, StyleSheet, FlatList, Image, RefreshControl, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { FlatList, Image, RefreshControl, Text, View, StyleSheet } from "react-native";
+
 import { images } from "../../constants";
 import useAppwrite from "../../lib/useAppwrite";
 import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
 import VideoCard from "../../components/VideoCard";
-// import SearchInput from "../../components/SearchInput";
+import SearchInput from "../../components/SearchInput";
 import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
 
@@ -21,7 +23,7 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={posts}
         keyExtractor={(item) => item.$id}
@@ -35,11 +37,11 @@ const Home = () => {
           />
         )}
         ListHeaderComponent={() => (
-          <View style={styles.headerContainer}>
-            <View style={styles.header}>
+          <View style={styles.header}>
+            <View style={styles.welcomeContainer}>
               <View>
                 <Text style={styles.welcomeText}>Welcome Back</Text>
-                <Text style={styles.username}>JSMastery</Text>
+                <Text style={styles.title}>JSMastery</Text>
               </View>
               <View style={styles.logoContainer}>
                 <Image
@@ -49,11 +51,9 @@ const Home = () => {
                 />
               </View>
             </View>
-
-            {/* <SearchInput /> */}
-
+            <SearchInput />
             <View style={styles.latestVideosContainer}>
-              <Text style={styles.latestVideosText}>Latest Videos</Text>
+              <Text style={styles.latestVideosTitle}>Latest Videos</Text>
               <Trending posts={latestPosts ?? []} />
             </View>
           </View>
@@ -73,49 +73,48 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: "#1F2937", // Equivalent to "bg-primary" from NativeWind
+  container: {
+    backgroundColor: '#161622',
     flex: 1,
-  },
-  headerContainer: {
-    marginVertical: 24, // "my-6"
-    paddingHorizontal: 16, // "px-4"
-    spaceVertical: 24, // "space-y-6"
   },
   header: {
-    flexDirection: "row", // "flex-row"
-    justifyContent: "space-between", // "justify-between"
-    alignItems: "flex-start", // "items-start"
-    marginBottom: 24, // "mb-6"
+    marginVertical: 24,
+    paddingHorizontal: 16,
+    spaceY: 24,
+  },
+  welcomeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 24,
   },
   welcomeText: {
-    fontFamily: "Poppins-Medium", // "font-pmedium"
-    fontSize: 14, // "text-sm"
-    color: "#D1D5DB", // "text-gray-100"
+    fontSize: 14,
+    color: '#CDCDE0',
+    fontFamily: 'Poppins-Medium',
   },
-  username: {
-    fontFamily: "Poppins-SemiBold", // "font-psemibold"
-    fontSize: 24, // "text-2xl"
-    color: "#FFFFFF", // "text-white"
+  title: {
+    fontSize: 24,
+    color: '#FFFFFF',
+    fontFamily: 'Poppins-SemiBold',
   },
   logoContainer: {
-    marginTop: 6, // "mt-1.5"
+    marginTop: 6,
   },
   logo: {
-    width: 36, // "w-9"
-    height: 40, // "h-10"
+    width: 36,
+    height: 40,
   },
   latestVideosContainer: {
-    width: "100%", // "w-full"
-    flex: 1,
-    paddingTop: 20, // "pt-5"
-    paddingBottom: 32, // "pb-8"
+    width: '100%',
+    paddingTop: 20,
+    paddingBottom: 32,
   },
-  latestVideosText: {
-    fontFamily: "Poppins-Regular", // "font-pregular"
-    fontSize: 18, // "text-lg"
-    color: "#D1D5DB", // "text-gray-100"
-    marginBottom: 12, // "mb-3"
+  latestVideosTitle: {
+    fontSize: 18,
+    color: '#CDCDE0',
+    marginBottom: 12,
+    fontFamily: 'Poppins-Regular',
   },
 });
 

@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14, // equivalent to text-sm
-    fontFamily: "pmedium", // custom font reference
+    fontFamily: "Poppins-Medium", // custom font reference
     color: "#F5F5F5", // equivalent to text-gray-100
   },
   subtitle: {
     fontSize: 20, // equivalent to text-xl
     textAlign: "center",
-    fontFamily: "psemibold", // custom font reference
+    fontFamily: "Poppins-SemiBold", // custom font reference
     color: "#FFFFFF",
     marginTop: 8, // equivalent to mt-2
   },

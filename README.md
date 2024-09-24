@@ -1,50 +1,103 @@
-# Welcome to your Expo app 👋
+Here's a README file for your project:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+# Aora
 
-1. Install dependencies
+Aora is a React Native app that allows users to upload AI-generated videos along with custom thumbnails and the prompt used to generate the video. Users can sign up, log in, upload their own videos, and view others' videos. The app features email-based authentication and uses Appwrite for backend services to store user details, videos, and images.
 
+## Features
+
+- **User Authentication**: Sign up and log in using email.
+- **Upload AI-Generated Videos**: Users can upload videos with custom thumbnails and share the prompt they used.
+- **Explore Videos**: Browse through videos uploaded by other users.
+- **Storage on Appwrite**: User data, videos, and images are securely stored using Appwrite.
+
+## Tech Stack
+
+- **Frontend**: React Native, Expo, NativeWind, TailwindCSS
+- **Backend**: Appwrite
+- **Navigation**: React Navigation
+- **UI Components**: NativeWind, React Native Animatable, Expo AV
+- **Other Dependencies**:
+  - Vector Icons: `@expo/vector-icons`
+  - Gesture Handling: `react-native-gesture-handler`
+  - Animations: `react-native-reanimated`, `react-native-animatable`
+  - Document Picker: `expo-document-picker`
+  - Image Picker: `expo-image-picker`
+
+## Screenshots
+
+Here are some screenshots from the app:
+
+![Welcome Screen](./assets/screenshots/WelcomePage.png)
+![Login Screen](./assets/screenshots/signIn.png)
+![Sign Up Screen](./assets/screenshots/SignUp.png)
+![Home Screen](./assets/screenshots/HomePage.png)
+![Search Screen](./assets/screenshots/SearchPage.png)
+![Upload Screen](./assets/screenshots/createPage.png)
+![User Profile Screen](./assets/screenshots/ProfilePage.png)
+
+
+## Installation and Setup
+
+### Prerequisites
+- Make sure you have [Node.js](https://nodejs.org/) and [Expo CLI](https://docs.expo.dev/get-started/installation/) installed.
+- [Appwrite](https://appwrite.io/) setup for backend (or use your existing Appwrite instance).
+
+### Steps
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/cygnus07/Aora.git
+   cd Aora
+   ```
+
+2. **Install Dependencies**:
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Setup Appwrite**:
+   - Ensure that your Appwrite backend is up and running.
+   - Configure your Appwrite project in the app, adding your `projectId`, `endpoint`, and other necessary credentials.
 
+4. **Run the App**:
+   For Android:
    ```bash
-    npx expo start
+   npm run android
    ```
 
-In the output, you'll find options to open the app in a
+   For iOS:
+   ```bash
+   npm run ios
+   ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   For Web:
+   ```bash
+   npm run web
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+5. **Reset Project (Optional)**:
+   If you need to reset the project:
+   ```bash
+   npm run reset-project
+   ```
 
-## Get a fresh project
+## Usage
 
-When you're ready, run:
+- **Sign up or log in** with your email to start using the app.
+- **Upload AI-generated videos** by selecting a video, adding a thumbnail, and providing the prompt.
+- **Explore videos** uploaded by others on the main gallery screen.
 
-```bash
-npm run reset-project
-```
+## Learning Journey
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+This app was created as a personal project to learn React Native and integrate various features such as authentication, media uploads, and backend integration using Appwrite. It’s a portfolio project showcasing my skills in building mobile apps with modern technologies.
 
-## Learn more
+## License
 
-To learn more about developing your project with Expo, look at the following resources:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+You can now copy this into your `README.md` file! Let me know if you'd like any further modifications.

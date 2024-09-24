@@ -1,21 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import { Redirect, Tabs } from "expo-router";
-import { Image, Text, View } from "react-native";
+import { Image, Text, View, StyleSheet } from "react-native";
 
 import { icons } from "../../constants";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
-    <View className="flex items-center justify-center gap-2">
+    <View style={styles.iconContainer}>
       <Image
         source={icon}
         resizeMode="contain"
-        tintColor={color}
-        className="w-3 h-3"
+        style={[styles.iconImage, { tintColor: color }]}
       />
       <Text
-        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
-        style={{ color: color }}
+        style={[
+          focused ? styles.fontPsemibold : styles.fontPregular,
+          styles.iconText,
+          { color: color },
+        ]}
       >
         {name}
       </Text>
@@ -24,9 +26,9 @@ const TabIcon = ({ icon, color, name, focused }) => {
 };
 
 const TabLayout = () => {
-//   const { loading, isLogged } = useGlobalContext();
+  //   const { loading, isLogged } = useGlobalContext();
 
-//   if (!loading && !isLogged) return <Redirect href="/sign-in" />;
+  //   if (!loading && !isLogged) return <Redirect href="/sign-in" />;
 
   return (
     <>
@@ -39,7 +41,7 @@ const TabLayout = () => {
             backgroundColor: "#161622",
             borderTopWidth: 1,
             borderTopColor: "#232533",
-            height: 84,
+            height: 64,
           },
         }}
       >
@@ -111,5 +113,28 @@ const TabLayout = () => {
     </>
   );
 };
+
+// StyleSheet Definition
+const styles = StyleSheet.create({
+  iconContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 4, 
+  },
+  iconImage: {
+    width: 18, 
+    height: 18,
+  },
+  iconText: {
+    fontSize: 10, 
+  },
+  fontPsemibold: {
+    fontFamily: "Poppins-Bold", 
+  },
+  fontPregular: {
+    fontFamily: "Poppins-Regular", 
+  },
+});
 
 export default TabLayout;

@@ -1,103 +1,114 @@
-Here's a README file for your project:
-
----
 
 # Aora
 
-Aora is a React Native app that allows users to upload AI-generated videos along with custom thumbnails and the prompt used to generate the video. Users can sign up, log in, upload their own videos, and view others' videos. The app features email-based authentication and uses Appwrite for backend services to store user details, videos, and images.
+Aora is a **personal project** I created while learning React Native. It’s a platform where users can upload AI-generated videos with custom thumbnails and share the prompts they used to generate those videos. Users can explore videos shared by others, or upload their own, making Aora a creative space for AI-generated content.
+
+This app was a challenging yet rewarding learning experience, helping me deepen my understanding of mobile development, state management, backend integration, and media handling.
 
 ## Features
 
-- **User Authentication**: Sign up and log in using email.
-- **Upload AI-Generated Videos**: Users can upload videos with custom thumbnails and share the prompt they used.
-- **Explore Videos**: Browse through videos uploaded by other users.
-- **Storage on Appwrite**: User data, videos, and images are securely stored using Appwrite.
+- **Email Authentication**: Users can sign up and log in using their email.
+- **Upload AI-Generated Videos**: Upload videos with custom thumbnails and the prompt used to create the video.
+- **Video Gallery**: Explore AI-generated videos uploaded by other users.
+- **Appwrite Integration**: Appwrite handles backend functionality like user authentication, video uploads, and storage.
+  
+## Screenshots
+
+Here are a few screenshots of Aora in action:
+
+<img src="./assets/screenshots/login.png" alt="Login Screen" width="300"/>
+<img src="./assets/screenshots/upload.png" alt="Video Upload Screen" width="300"/>
+<img src="./assets/screenshots/gallery.png" alt="Video Gallery Screen" width="300"/>
 
 ## Tech Stack
 
-- **Frontend**: React Native, Expo, NativeWind, TailwindCSS
-- **Backend**: Appwrite
+- **Frontend**: React Native, Expo
+- **Styling**: NativeWind, TailwindCSS
+- **Backend**: Appwrite (authentication, file storage)
 - **Navigation**: React Navigation
-- **UI Components**: NativeWind, React Native Animatable, Expo AV
 - **Other Dependencies**:
   - Vector Icons: `@expo/vector-icons`
   - Gesture Handling: `react-native-gesture-handler`
   - Animations: `react-native-reanimated`, `react-native-animatable`
-  - Document Picker: `expo-document-picker`
-  - Image Picker: `expo-image-picker`
-
-## Screenshots
-
-Here are some screenshots from the app:
-
-![Welcome Screen](./assets/screenshots/WelcomePage.png)
-![Login Screen](./assets/screenshots/signIn.png)
-![Sign Up Screen](./assets/screenshots/SignUp.png)
-![Home Screen](./assets/screenshots/HomePage.png)
-![Search Screen](./assets/screenshots/SearchPage.png)
-![Upload Screen](./assets/screenshots/createPage.png)
-![User Profile Screen](./assets/screenshots/ProfilePage.png)
-
+  - Media Handling: `expo-av`, `expo-image-picker`
 
 ## Installation and Setup
 
+To set up the project locally, follow these steps:
+
 ### Prerequisites
-- Make sure you have [Node.js](https://nodejs.org/) and [Expo CLI](https://docs.expo.dev/get-started/installation/) installed.
-- [Appwrite](https://appwrite.io/) setup for backend (or use your existing Appwrite instance).
+
+- [Node.js](https://nodejs.org/) installed on your machine.
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) installed globally.
+- [Appwrite](https://appwrite.io/) backend configured (you can either use your own or follow Appwrite’s docs to set one up).
 
 ### Steps
 
 1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/cygnus07/Aora.git
    cd Aora
    ```
 
 2. **Install Dependencies**:
+
+   Install the required packages by running:
+
    ```bash
    npm install
    ```
 
-3. **Setup Appwrite**:
-   - Ensure that your Appwrite backend is up and running.
-   - Configure your Appwrite project in the app, adding your `projectId`, `endpoint`, and other necessary credentials.
+3. **Set up Expo**:
 
-4. **Run the App**:
-   For Android:
-   ```bash
-   npm run android
-   ```
+   - Install Expo CLI if you don’t have it:
+   
+     ```bash
+     npm install -g expo-cli
+     ```
 
-   For iOS:
-   ```bash
-   npm run ios
-   ```
+   - Make sure to configure your Expo app to use a compatible SDK version, based on the version mentioned in `package.json`. You can check Expo's [installation guide](https://docs.expo.dev/get-started/installation/) for help.
 
-   For Web:
-   ```bash
-   npm run web
-   ```
+4. **Set up Appwrite**:
 
-5. **Reset Project (Optional)**:
-   If you need to reset the project:
-   ```bash
-   npm run reset-project
-   ```
+   - Create an Appwrite project or use an existing one.
+   - Set up a project with authentication, database, and file storage.
+   - Update the Appwrite credentials in the app by configuring your `projectId`, `endpoint`, and any required secrets in the appropriate configuration files.
 
-## Usage
+5. **Run the App**:
 
-- **Sign up or log in** with your email to start using the app.
-- **Upload AI-generated videos** by selecting a video, adding a thumbnail, and providing the prompt.
-- **Explore videos** uploaded by others on the main gallery screen.
+   To run the app on your device/emulator, execute one of the following:
+
+   - For Android:
+     ```bash
+     npm run android
+     ```
+
+   - For iOS:
+     ```bash
+     npm run ios
+     ```
+
+   - For Web:
+     ```bash
+     npm run web
+     ```
+
+### Optional - Reset Project:
+
+If you need to reset the project:
+
+```bash
+npm run reset-project
+```
 
 ## Learning Journey
 
-This app was created as a personal project to learn React Native and integrate various features such as authentication, media uploads, and backend integration using Appwrite. It’s a portfolio project showcasing my skills in building mobile apps with modern technologies.
+This project marks an important milestone in my development journey. Aora gave me hands-on experience in React Native, mobile UI design, backend integration with Appwrite, and building a smooth media upload feature. It’s the culmination of what I learned over several months and stands as a proud showcase in my portfolio. Working through challenges, from authentication to media handling, has been both educational and fulfilling.
 
-## License
+## Future Improvements
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Implement video streaming for smoother playback.
+- Add more granular user permissions for content management.
+- Integrate social features like likes and comments.
 
----
-
-You can now copy this into your `README.md` file! Let me know if you'd like any further modifications.

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList, Image, RefreshControl, Text, View, StyleSheet } from "react-native";
 
@@ -9,11 +9,13 @@ import VideoCard from "../../components/VideoCard";
 import SearchInput from "../../components/SearchInput";
 import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
+import { useGlobalContext } from "../../context/GlobalProvider";
 
 const Home = () => {
+  const { user, setUser, setIsLogged } = useGlobalContext();
   const { data: posts, refetch } = useAppwrite(getAllPosts);
   const { data: latestPosts } = useAppwrite(getLatestPosts);
-
+  
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
@@ -41,7 +43,7 @@ const Home = () => {
             <View style={styles.welcomeContainer}>
               <View>
                 <Text style={styles.welcomeText}>Welcome Back</Text>
-                <Text style={styles.title}>JSMastery</Text>
+                <Text style={styles.title}>{user?.username}</Text>
               </View>
               <View style={styles.logoContainer}>
                 <Image

@@ -74,7 +74,7 @@ const Profile = () => {
                 containerStyles={styles.statsBox}
               />
               <InfoBox
-                title="1.2k"
+                title="120k"
                 subtitle="Followers"
                 titleStyles={styles.statsTitle}
               />

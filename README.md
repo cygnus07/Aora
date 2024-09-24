@@ -16,9 +16,14 @@ This app was a challenging yet rewarding learning experience, helping me deepen 
 
 Here are a few screenshots of Aora in action:
 
-<img src="./assets/screenshots/login.png" alt="Login Screen" width="300"/>
-<img src="./assets/screenshots/upload.png" alt="Video Upload Screen" width="300"/>
-<img src="./assets/screenshots/gallery.png" alt="Video Gallery Screen" width="300"/>
+<img src="./assets/screenshots/WelcomePage.png" alt="Welcome Screen" width="300"/>
+<img src="./assets/screenshots/signIn.png" alt="Login Screen" width="300"/>
+<img src="./assets/screenshots/SignUp.png" alt="Sign Up Screen" width="300"/>
+<img src="./assets/screenshots/HomePage.png" alt="Home Screen" width="300"/>
+<img src="./assets/screenshots/SearchPage.png" alt="Search Screen" width="300"/>
+<img src="./assets/screenshots/createPage.png" alt="Upload Screen" width="300"/>
+<img src="./assets/screenshots/ProfilePage.png" alt="User Profile Screen" width="300"/>
+
 
 ## Tech Stack
 
